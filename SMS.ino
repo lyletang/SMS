@@ -68,19 +68,19 @@ void loop() {
 		DebugSerial.println("getMessage:");
 		DebugSerial.println(messageBuffer);
 
-    if(strstr(messageBuffer, "reboot") != NULL || strstr(messageBuffer, "91CD542F") != NULL) //91CD 542F //重启
-    {
-      DebugSerial.println("GET reboot Command!");
-      digitalWrite(L, HIGH);
-      LinuxSerial.print("3");       //Linux串口打印3
-    }
+		if(strstr(messageBuffer, "reboot") != NULL || strstr(messageBuffer, "91CD542F") != NULL) //91CD 542F //重启
+		{
+			DebugSerial.println("GET reboot Command!");
+			digitalWrite(L, HIGH);
+			LinuxSerial.print("3");       //Linux串口打印3
+		}
 
-    else if(strstr(messageBuffer, "boot") != NULL || strstr(messageBuffer, "5f00") != NULL) //5f00 673A //开机
-    {
-      DebugSerial.println("GET BOOT Command!");
-      digitalWrite(L, HIGH);
-      LinuxSerial.print("1");     //Linux串口打印1
-    }
+		else if(strstr(messageBuffer, "boot") != NULL || strstr(messageBuffer, "5f00") != NULL) //5f00 673A //开机
+		{
+			DebugSerial.println("GET BOOT Command!");
+			digitalWrite(L, HIGH);
+			LinuxSerial.print("1");     //Linux串口打印1
+		}		
 
 		else if(strstr(messageBuffer, "shutdown") != NULL || strstr(messageBuffer, "5173673A") != NULL)	//5173 673A //关机
 		{
